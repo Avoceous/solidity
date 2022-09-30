@@ -58,7 +58,7 @@ RUN set -ex && \
 		.. && \
 	make && \
 	make install && \
-	rm -r /usr/src/z3 && \
+	rm -ir /usr/src/z3 && \
 	cd /usr/src && \
 	\
 	wget -q 'https://boostorg.jfrog.io/artifactory/main/release/1.75.0/source/boost_1_75_0.tar.bz2' -O boost.tar.bz2 && \
@@ -73,4 +73,4 @@ RUN set -ex && \
 		--with-system --with-filesystem --with-test --with-program_options \
 		cxxflags="-s DISABLE_EXCEPTION_CATCHING=0 -Wno-unused-local-typedef -Wno-variadic-macros -Wno-c99-extensions -Wno-all" \
 	       --prefix=$(em-config CACHE)/sysroot/usr install && \
-	rm -r /usr/src/boost_1_75_0
+	rm -ir /usr/src/boost_1_75_0
